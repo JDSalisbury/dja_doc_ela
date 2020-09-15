@@ -18,7 +18,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'posts'
+    'posts',
+    'django_elasticsearch_dsl',
+
 ]
 
 MIDDLEWARE = [
@@ -86,3 +88,9 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': os.getenv("ELASTICSEARCH_DSL_HOSTS", 'localhost:9200')
+    },
+}
